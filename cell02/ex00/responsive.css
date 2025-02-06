@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+table{
+    text-align: left;
+    border-collapse: collapse;
+    width: 100%;
+    height: 100%;
+    color: rgb(0, 0, 0);
+}
+th{
+    border: 1px solid black;
+    width: 50%;
+    font-size: 2vw;
+    font-weight: bolder;
+}
+#red{
+    background-color: rgb(192, 186, 186);
+}
+#yellow{
+    background-color: yellow;
+}

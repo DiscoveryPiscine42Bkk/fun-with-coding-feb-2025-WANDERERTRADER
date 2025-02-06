@@ -1,0 +1,34 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+.parallax {
+    height: 100vh;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(208, 255, 0);
+    font-size: 48px;
+    font-weight: bold;
+}
+.section {
+    height: 50vh;
+    background: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+.bg1 {
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrUiRT_rqM7OTZukvc06mZIInFucXSOPAqDw&s');
+}
+.bg2 {
+    background-image: url('https://i.makeagif.com/media/12-24-2023/qh37e1.gif');
+}
+.fonts{
+    font-size: 250px;
+}
