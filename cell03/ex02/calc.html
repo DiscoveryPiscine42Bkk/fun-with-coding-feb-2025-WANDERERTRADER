@@ -1,9 +1,9 @@
+make to jquray
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>calculator</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         body{
             display: flex;
@@ -19,7 +19,7 @@
         input{
             width: 250px;
             height: 200px;
-            font-size: 30px;
+            font-size: 30;
         }
         button{
             width: 250px;
@@ -29,67 +29,71 @@
 </head>
 <body>
     <input type="text" id="first" placeholder="first number">
-    <select id="operator">
+        <select id="operator">
         <option value="+">+</option>
         <option value="-">-</option>
         <option value="*">*</option>
         <option value="/">/</option>
         <option value="%">%</option>
-    </select>
-    <input type="text" id="last" placeholder="last number">
-    <button id="calculate">TRY ME!</button>
-    
-    <script>
-        $(document).ready(function() {
-            function cal() {
-                let first = parseInt($("#first").val());
-                let last = parseInt($("#last").val());
-                let operator = $("#operator").val();
-                
-                if (isNaN(first) || isNaN(last) || first < 0 || last < 0) {
-                    alert("Error : (");
-                    return;
-                }
-                
-                let result;
-                switch (operator) {
-                    case "+":
-                        result = first + last;
-                        break;
-                    case "-":
-                        result = first - last;
-                        break;
-                    case "*":
-                        result = first * last;
-                        break;
-                    case "/":
-                        if (last === 0) {
-                            alert("It's over 9000!");
-                            console.log("It's over 9000!");
-                            return;
-                        }
-                        result = first / last;
-                        break;
-                    case "%":
-                        if (last === 0) {
-                            alert("It's over 9000!");
-                            console.log("It's over 9000!");
-                            return;
-                        }
-                        result = first % last;
-                        break;
-                }
-                
-                alert("Result: " + result);
-                console.log("Result: " + result);
-            }
-            
-            $("#calculate").click(cal);
-            
-            setInterval(function() {
-                alert("Please, use me ...");
-            }, 30000);
-        });
-    </script>
+        </select>
+<input type="text" id="last" placeholder="last number">
+<button onclick="cal()">TRY ME!</button>
+<script>
+   function cal() {
+  const frist = document.getElementById("first").value;
+  const last = document.getElementById("last").value;
+  const operator = document.getElementById("operator").value;
+
+  // ตรวจสอบว่า input เป็นจำนวนทศนิยมหรือไม่
+  if (!Number.isInteger(parseFloat(frist)) || !Number.isInteger(parseFloat(last))) {
+    alert("Error : (");
+    return;
+  }
+
+  const fristInt = parseInt(frist);
+  const lastInt = parseInt(last);
+
+  if (isNaN(fristInt) || isNaN(lastInt) || fristInt < 0 || lastInt < 0) {
+    alert("Error : (");
+    return;
+  }
+
+  let result;
+  switch (operator) {
+    case "+":
+      result = fristInt + lastInt;
+      break;
+    case "-":
+      result = fristInt - lastInt;
+      break;
+    case "*":
+      result = fristInt * lastInt;
+      break;
+    case "/":
+      if (lastInt === 0) {
+        alert("It's over 9000!");
+        console.log("It's over 9000!");
+        return;
+      }
+      result = fristInt / lastInt;
+      break;
+    case "%":
+      if (lastInt === 0) {
+        alert("It's over 9000!");
+        console.log("It's over 9000!");
+        return;
+      }
+      result = fristInt % lastInt;
+      break;
+  }
+
+  alert("Result: " + result);
+  console.log("Result: " + result);
+}
+setInterval(() => {
+  alert("Please, use me ...");
+}, 30000);
+
+</script>
 </body>
 </html>
