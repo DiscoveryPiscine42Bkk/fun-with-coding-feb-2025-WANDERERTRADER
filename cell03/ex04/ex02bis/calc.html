@@ -42,56 +42,63 @@
 
     
     <script>
-        $(document).ready(function() {  // Wrap in $(document).ready()
+        $(document).ready(function() {
+    $("#calculateButton").click(function() {
+        const first = $("#first").val();
+        const last = $("#last").val();
+        const operator = $("#operator").val();
 
-            $("#calculateButton").click(function() { // jQuery click event
-                const first = parseInt($("#first").val()); // jQuery .val()
-                const last = parseInt($("#last").val());
-                const operator = $("#operator").val();
+        if (!/^-?\d+$/.test(first) || !/^-?\d+$/.test(last)) {
+            alert("Error : (");
+            return;
+        }
 
-                if (isNaN(first) || isNaN(last) || first < 0 || last < 0) {
-                    alert("Error : (");
+        const firstNum = parseInt(first);
+        const lastNum = parseInt(last);
+
+        if (isNaN(firstNum) || isNaN(lastNum) || firstNum < 0 || lastNum < 0) {
+            alert("Error : (");
+            return;
+        }
+
+        let result;
+        switch (operator) {
+            case "+":
+                result = firstNum + lastNum;
+                break;
+            case "-":
+                result = firstNum - lastNum;
+                break;
+            case "*":
+                result = firstNum * lastNum;
+                break;
+            case "/":
+                if (lastNum === 0) {
+                    alert("It's over 9000!");
+                    console.log("It's over 9000!");
                     return;
                 }
-
-                let result;
-                switch (operator) {
-                    case "+":
-                        result = first + last;
-                        break;
-                    case "-":
-                        result = first - last;
-                        break;
-                    case "*":
-                        result = first * last;
-                        break;
-                    case "/":
-                        if (last === 0) {
-                            alert("It's over 9000!");
-                            console.log("It's over 9000!");
-                            return;
-                        }
-                        result = first / last;
-                        break;
-                    case "%":
-                        if (last === 0) {
-                            alert("It's over 9000!");
-                            console.log("It's over 9000!");
-                            return;
-                        }
-                        result = first % last;
-                        break;
+                result = firstNum / lastNum;
+                break;
+            case "%":
+                if (lastNum === 0) {
+                    alert("It's over 9000!");
+                    console.log("It's over 9000!");
+                    return;
                 }
+                result = firstNum % lastNum;
+                break;
+        }
 
-                alert("Result: " + result);
-                console.log("Result: " + result);
-            });
+        alert("Result: " + result);
+        console.log("Result: " + result);
+    });
 
-            setInterval(function() { // jQuery setInterval
-                alert("Please, use me ...");
-            }, 30000);
+    setInterval(function() {
+        alert("Please, use me ...");
+    }, 30000);
+});
 
-        }); // End of $(document).ready()
     </script>
 </body>
 </html>
